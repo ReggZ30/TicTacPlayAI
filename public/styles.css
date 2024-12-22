@@ -1,0 +1,232 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(140deg, #0f4c75, #3282b8);
+    color: #333;
+    padding: 0 1rem;
+    flex-direction: column; 
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo {
+    width: 250px;
+    height: auto;
+}
+
+/* Game Wrapper */
+.game-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 80px; 
+}
+
+/* Containers */
+.intro-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    box-sizing: border-box;
+}
+.welcome-container, .selection-container, .game-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+h2, h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Button */
+.btn {
+    background: #112d4e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin: 15px 0; 
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.selection-options {
+    margin: 2rem 0;
+}
+
+/* Symbol Buttons */
+.symbol-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.symbol-btn {
+    font-size: 1.5rem;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #ddd;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.symbol-btn:hover {
+    transform: translateY(-5px);
+    background: #4ca1af;
+    color: white;
+}
+
+.symbol-btn.selected {
+    border-color: #4ca1af;
+    background-color: #e0f7fa;
+    color: #0f4c75;
+}
+
+select {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin: 1rem 0;
+    background: #f5f5f5;
+    transition: background-color 0.3s ease;
+}
+
+select:hover {
+    background: #f0f0f0;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px; /* Menambah jarak antar cell pada board */
+    margin: 2rem 0; /* Memberikan margin agar tidak terlalu rapat dengan tombol */
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* Cells */
+.cell {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, #ffffff, #e0e0e0);
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cell:hover {
+    background: #4facfe;
+    color: white;
+    transform: scale(1.05);
+}
+
+.cell.x {
+    color: #ff2929;
+}
+
+.cell.o {
+    color: #3d3bf3;
+}
+
+/* Modal Overlay Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    width: 400px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.modal-content p {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hidden {
+    display: none;
+}
